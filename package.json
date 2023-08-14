@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --w",
+    "build": "npx tsc",
+    "build:watch": "npx tsc --w",
     "dev": "ts-node src/index.ts",
-    "start": "tsc && ts-node dist/index.js"
+    "start": "npx tsc && ts-node dist/index.js"
   },
   "keywords": [],
   "author": "",
