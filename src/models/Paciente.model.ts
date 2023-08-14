@@ -1,13 +1,7 @@
-import { Schema, model } from 'mongoose';
+import mongoose from 'mongoose';
 
-const PacienteSchema = new Schema({
-    nombre: String,
-    propietario: String,
-    email: String,
-    alta: Date,
-    sintomas: String,
-})
+import PacienteSchema from '../schemas/Paciente.schema';
 
-const Paciente = model('Paciente', PacienteSchema);
+const Paciente = mongoose.model('Paciente', PacienteSchema);
 
 export default Paciente;

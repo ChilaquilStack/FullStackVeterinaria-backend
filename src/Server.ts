@@ -1,6 +1,9 @@
 
 import  express, { Express, Request, Response } from 'express';
-import paciente from './controllers/Paciente.controller';
+require('dotenv/config')
+
+import connectDB from './db';
+import routerPaciente from './routes/Pacientes.routes';
 
 export default class Server {
     
@@ -14,11 +17,13 @@ export default class Server {
     }
     
     midlewares() {
-        this.#app.get('/', paciente.index);
+        this.#app.use(express.json());
+        this.#app.use('/', routerPaciente);
     }
     
     listen() {
         this.#app.listen(this.#port, () => {
+            connectDB();
             console.log(`Server is running at http://localhost:${this.#port}/`);
         });
     }
